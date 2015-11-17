@@ -21,9 +21,25 @@
     shell: /bin/bash
     state: present
 
-- name: Cassandra | Set the right directory permissions for the www directory
+- name: Cassandra | Set the right directory permissions for the home directory
   file:
     path: "{{cassandra_user_dir}}"
+    owner: "{{cassandra_user}}"
+    group: "{{cassandra_group}}"
+    mode: 0700
+    state: directory
+
+- name: Cassandra | Set the right directory permissions for the data directory 
+  file:
+    path: "{{cassandra_data_file_directories}}"
+    owner: "{{cassandra_user}}"
+    group: "{{cassandra_group}}"
+    mode: 0700
+    state: directory
+
+- name: Cassandra | Set the right directory permissions for the commitlog directory 
+  file:
+    path: "{{cassandra_commitlog_directory}}"
     owner: "{{cassandra_user}}"
     group: "{{cassandra_group}}"
     mode: 0700
