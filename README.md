@@ -1,5 +1,3 @@
-## ANXS - cassandra [![Build Status](https://travis-ci.org/ANXS/cassandra.png)](https://travis-ci.org/ANXS/cassandra)
-
 Ansible role which installs and configures Apache Cassandra.
 
 
