@@ -1,4 +1,8 @@
 # file: cassandra/meta/main.yml
+dependencies:
+  - role: smola.java
+    java_packages: [ "oracle-java7-installer" ]
+  - role: tersmitten.ntp
 
 galaxy_info:
   author: pjan vandaele
