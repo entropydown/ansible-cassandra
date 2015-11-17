@@ -1,4 +1,14 @@
 # file: cassandra/tasks/package_configure.yml
+- name: Stop cassandra because it is autostarted after install
+  service:
+    name: cassandra
+    state: stopped
+
+- name: Clear logs to remove autostart cruft 
+  shell: echo  > /var/log/cassandra/system.log
+
+- name: Clear default data dirs after autostart
+  shell: rm -rf /var/lib/cassandra/* 
 
 - name: Cassandra | Update the cassandra configuration
   template:
