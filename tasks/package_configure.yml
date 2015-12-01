@@ -7,8 +7,13 @@
 - name: Clear logs to remove autostart cruft 
   shell: echo  > /var/log/cassandra/system.log
 
-- name: Clear default data dirs after autostart
-  shell: rm -rf /var/lib/cassandra/* 
+- name: acquire cluster_name from cassandra.yaml to determine if this is a fresh install
+  shell: cat /etc/cassandra/cassandra.yaml  | grep "cluster_name"
+  register: fresh_install
+
+- name: Clear system data dir after autostart only if fresh install (cluster_name == "Test Cluster")
+  shell: rm -rf /var/lib/cassandra/data/system/*
+  when: fresh_install.stdout.find('Test Cluster') >= 0
 
 - name: Cassandra | Update the cassandra configuration
   template:
