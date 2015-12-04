@@ -17,11 +17,11 @@ cassandra_heap_newsize: null
 
 # cassandra.yaml basic configuration parameters
 cassandra_num_tokens: "256"
-cassandra_listen_address: "localhost"
+cassandra_listen_interface: "eth0"
 cassandra_seeds: ["localhost"]
 cassandra_endpoint_snitch: "SimpleSnitch"                               # in case of cluster: RackInferringSnitch
 
-cassandra_rpc_address: "localhost"
+cassandra_rpc_interface: "eth0"
 cassandra_concurrent_reads: "32"
 cassandra_concurrent_writes: "32"
 
