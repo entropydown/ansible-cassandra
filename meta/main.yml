@@ -1,6 +1,6 @@
 # file: cassandra/meta/main.yml
 dependencies:
-  - role: smola.java
+  - role: dwcramer.java
     java_packages: [ "oracle-java7-installer" ]
   - role: tersmitten.ntp
 
